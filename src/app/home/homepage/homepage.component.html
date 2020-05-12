@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+        <app-breadcrumbs></app-breadcrumbs>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <h2 i18n="@@whatToDo">What would you like to do?</h2>
+  </div>
+  <div class="row">
+    <!-- <div class="col-md-3 mx-auto offset-1 mt-5">
+        <div class="card mx-auto my-1 cursor-pointer card-menu display-block" style="height: 24vh">
+            <a [routerLink]="['/upload']"
+            matTooltip="Option to create a job" 
+            matTooltipClass="stride-tool-tip">
+              <div class="card-body text-center">
+                  <h4><i style="font-size: 24pt" class=" fa fa-upload"></i></h4>
+                  <div class="card-title">
+                      <span i18n="@@uploadDocument" class="">Create Job</span>
+                  </div>
+              </div>
+            </a>
+        </div>
+    </div> -->
+    <div class="col-md-3 mx-auto mt-5">
+      <div class="card mx-auto my-1 cursor-pointer card-menu display-block" style="height: 24vh">
+        <a  [routerLink]="['/dashboard']"
+            matTooltip="Results" 
+            matTooltipClass="stride-tool-tip">
+          <div class="card-body text-center">
+            <h4><i style="font-size: 24pt" class=" fa fa-tasks"></i></h4>
+            <div class="card-title">
+                <span i18n="@@viewDashboard" class="">View Games</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

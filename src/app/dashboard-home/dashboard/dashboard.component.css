@@ -1,0 +1,98 @@
+table {
+    width: 100%;
+}
+
+button:focus {
+    outline: none !important;
+}
+
+.table-container {
+    margin: auto;
+    overflow: auto;
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 315px);
+}
+
+.table-container .mat-table {
+    max-height: calc(100vh - 265px);
+    overflow-y: auto;
+}
+
+.table-container .mat-table .mat-header-row {
+    position: sticky;
+    top: 0;
+    background: white;
+}
+
+.mat-paginator-sticky {
+    bottom: 0px;
+    position: sticky;
+    z-index: 10;
+}
+
+.mat-expansion-panel {
+    box-shadow: none !important;
+}
+
+.mat-expansion-panel-header-description, .mat-expansion-panel-header-title {
+    display: block;
+    flex-grow: 1;
+    margin-right: 16px;
+}
+
+.btn {
+    padding: 0.4rem 1rem !important;
+}
+
+::ng-deep .mat-paginator-container {
+    min-height: 40px !important;
+}
+
+.card-container {
+    display: flex;
+    flex: 1 1;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card {
+    flex-basis: 40%;
+    height: 140px;
+    margin: 15px;
+    border-radius: 10px;
+}
+
+.absolute-right { 
+    position: absolute;
+    right: 3%;
+    color: #e6d810;
+    font-size: 21px;
+}
+
+.text-grey {
+    color: #787878;
+}
+
+.text-orange {
+    color: #a800fc;
+    font-size: 13px;
+}
+
+.list-container{
+    position: relative;
+}
+
+.select {
+    position: sticky;
+    width: 80% !important;
+}
+
+.list-container {
+    display: flex;
+}
+
+.mat-form-field {
+    width: 80px;
+    margin: 10px 0 0 5px;
+}

@@ -1,0 +1,74 @@
+<div class="list-container">
+  <div class="search" style="width: 80%;">
+    <label class="sr-only" for="input-search-process">Search</label>
+    <div class="input-group mb-1 mr-sm-2 pl-3">
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+          <i class="fa fa-lg text-gray fa-search"></i>
+        </div>
+      </div>
+        <input  #searchBar 
+        matInput
+        class="form-control my-1 force-left" 
+        [(ngModel)]="entityName" 
+        type="text"
+        [matAutocomplete]="auto" 
+        (ngModelChange)="searchFormChange($event)"
+        placeholder="Search (eg: Title)">
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="getOptionText" (optionSelected)="beginSearch($event)">
+        <mat-option *ngFor="let option of gamesList"
+          [value]="option">
+          {{option.title.toUpperCase()}}
+        </mat-option>
+      </mat-autocomplete>
+      <div class="input-group-append">
+        <div class="input-group-text text-danger mr-2 cursor-pointer" (click)="clearSearchInput()"
+          [class.hidden]="!entityName || entityName == ''">
+          <div class="fa fa-times"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="" >
+    <mat-form-field class="mat-form-field">
+      <mat-label>filter</mat-label>
+      <mat-select matNativeControl [(ngModel)]="sortKey">
+        <mat-option value="score">Score</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Order</mat-label>
+      <mat-select matNativeControl [(ngModel)]="sortOrder" (selectionChange)="sortChange($event)">
+        <mat-option value="asc">low to high</mat-option>
+        <mat-option value="desc">high to low</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+<div class="card-container">
+  <mat-card class="card" *ngFor="let card of gamesList">
+    <mat-card-header>
+      <img mat-card-avatar src="/static/img/PSLogo.jpg">
+      <mat-card-title class="text-blue">{{card.title | fileName}}</mat-card-title>
+      <mat-card-subtitle class="">{{card.platform}}</mat-card-subtitle>
+      <span class="absolute-right" *ngIf="card.editors_choice=== 'Y' "><i class="fa fa-star"></i></span>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-footer class="px-4 py-3">
+      <span><b class="text-blue">Genre: </b><span class="text-grey">{{card.genre}}</span></span>
+      <span class="text-blue float-right"><b><span class="text-orange">{{card.score}}</span></b></span>
+    </mat-card-footer>
+  </mat-card>
+</div>
+  <mat-paginator 
+    *ngIf="true"
+    #paginator
+    showFirstLastButtons
+    [length]="totalNumberOfDocuments"
+    [pageSize]="numberOfDocumentsShownPerPage"
+    [pageIndex]="paginatorPageIndex"
+    (page)="paginatorChangeEvent($event)"
+    [pageSizeOptions]="pageSizeOptions"
+    class="mat-paginator-sticky">
+  </mat-paginator>
+
